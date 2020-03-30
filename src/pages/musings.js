@@ -3,14 +3,15 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ArticleLayout from "../components/ArticleLayout"
 
-const articles =({data,location})=>{
+const musings =({data,location})=>{
     const siteTitle = data.site.siteMetadata.title
     return(
         <Layout location={location} title={siteTitle}>
     <SEO title="About me" />
-      <Bio />   
-
+      {/* <Bio />    */}
+      <ArticleLayout />
         </Layout>
     )
 
@@ -43,4 +44,4 @@ export const pageQuery = graphql`
 `
 
 
-export default articles
+export default musings

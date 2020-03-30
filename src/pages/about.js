@@ -9,8 +9,13 @@ const about =({data,location})=>{
     return(
         <Layout location={location} title={siteTitle}>
     <SEO title="About me" />
-      <Bio />   
-
+      {/* <Bio />    */}
+          <h3>About me</h3>
+          <div>
+            Hi! I'm Sahil Kamra, A full stack software developer and writer
+            <br></br><br></br>
+            I write Essays on growth and user acquisition
+          </div>
         </Layout>
     )
 

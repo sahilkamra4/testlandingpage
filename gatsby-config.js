@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Sahil Kamra`,
     author: {
       name: `Sahil Kamra`,
       summary: `who lives and works in New Delhi building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Personal Blog of Sahil Kamra`,
+    siteUrl: `https://www.sahilkamra.com`,
     social: {
       twitter: `sahilkamra22`,
     },
@@ -19,6 +19,14 @@ module.exports = {
         name: `blog`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/thumbnails`,
+        name: `thumbnails`,
+      },
+    },
+  
     
     {
       resolve: `gatsby-plugin-material-ui`,
@@ -83,7 +91,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/ufo.png`,
       },
     },
     {

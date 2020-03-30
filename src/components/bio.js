@@ -41,6 +41,7 @@ const Bio = () => {
       style={{
         display: `flex`,
         marginBottom: rhythm(2.5),
+        marginTop:"30px"
       }}
     >
       <Image
@@ -57,10 +58,12 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        Personal Blog by 
+        {/* <strong>{author.name}</strong>  */}
+        {/* {author.summary} */}
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+        <a href={`https://twitter.com/${social.twitter}`}  target="_blank">
+          Sahil Kamra
         </a>
       </p>
     </div>

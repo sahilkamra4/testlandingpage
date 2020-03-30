@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: 'green',
       height:'10px !important'
     },
-    height:"150px"
+    height:"100px"
   },
   mainbody:{
-    marginTop:"120px",
+    marginTop:"40px",
     [theme.breakpoints.down('xs')]: {
       marginTop:"40px",
     },
@@ -33,6 +33,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       fontSize:"14px",
     },
+    // "&:active":{
+    //   backgroundColor:"rgb(0,0,0,0.6)"
+    // }
     
 
   },
@@ -49,6 +52,15 @@ const useStyles = makeStyles(theme => ({
       paddingLeft:"2px"
     },
   },
+  linkbutton:{
+    // "&:hover":{
+    //   backgroundColor:"red"
+    // },
+    "&:active":{
+      backgroundColor:"green"
+    }
+  }
+  ,
   links:{
     justifyContent:"flex-end",
     [theme.breakpoints.down('xs')]: {
@@ -72,44 +84,53 @@ const Layout = ({ location, title, children }) => {
 
   if (location.pathname === rootPath) {
     header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
+      // <h3
+      //   style={{
+      //     // ...scale(1.5),
+      //     // marginBottom: rhythm(1.5),
+      //     marginTop: 0,
+      //     marginBottom:0,
+      //     color:"black",
+      //     whiteSpace:"nowrap"
+      //   }}
+      // >
         <Link
           style={{
             boxShadow: `none`,
             textDecoration: `none`,
-            color: `inherit`,
+            color: `black`,
+            fontSize:'1.988em',
+            fontWeight:"bold",
+            whiteSpace:"nowrap",
+            // background:"green"
           }}
           to={`/`}
         >
-          {title}
+        <h3 style={{marginTop:0,marginBottom:0}}>{title}</h3> 
         </Link>
-      </h1>
+      // </h3>
     )
   } else {
     header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
+      // <h3
+      //   style={{
+      //     fontFamily: `Montserrat, sans-serif`,
+      //     // marginTop: 0,
+      //     verticalAlign:"middle"
+      //   }}
+      // >
         <Link
           style={{
             boxShadow: `none`,
             textDecoration: `none`,
-            color: `inherit`,
+            // color: `red`,
+            whiteSpace:"nowrap"
           }}
           to={`/`}
         >
-          {title}
-        </Link>
-      </h3>
+         <h3 style={{marginTop:0,marginBottom:0}}>{title}</h3> 
+          </Link>
+      // </h3>
     )
   }
 
@@ -130,7 +151,7 @@ const Layout = ({ location, title, children }) => {
         // console.log("decreased scrolling")
        
         
-        document.getElementById("header").style.height = "150px";
+        document.getElementById("header").style.height = "100px";
          
       
     }
@@ -147,14 +168,14 @@ const preventDefault = event => event.preventDefault();
 <AppBar elevation={0} id="header" className={classes.root} position="fixed" style={{transition:"0.2s",background:"white",elevation:0}}>
         <Toolbar style={{background:"white",maxWidth:"850px",margin:"auto",width:"100%",marginBottom:"0px"}}>
         
-    
+{/*     
            <Link to="/" className={classes.bannerTitle} style={{whiteSpace:"nowrap",
            textDecoration:"none",boxShadow:"none",
            color:"#333",
            fontSize:"1.2rem",}}>
              Sahil Kamra
-           </Link> 
-          
+           </Link>  */}
+        {header}
            <Link to="/" className={classes.bannerTitlePhone} style={{whiteSpace:"nowrap",
            textDecoration:"none",boxShadow:"none",
            color:"#333",
@@ -171,7 +192,7 @@ const preventDefault = event => event.preventDefault();
         
           
            <div > 
-           <Button style={{fontSize:"1.2rem"}}>
+           {/* <Button style={{fontSize:"1.2rem"}} className={classes.linkbutton} selected={true}>
              
              <Link to="/about" className={classes.bannerfont} style={{
              textTransform:"none",
@@ -183,34 +204,49 @@ const preventDefault = event => event.preventDefault();
              margin:"0 0.2rem",color:"rgb(0,0,0,0.6"}}>
               About me
             </Link>
+               </Button> */}
+               <Button component={Link} to="/about" activeStyle={{background:"rgba(0, 0, 0, 0.04)"}} 
+                style={{
+                  textTransform:"none",
+                  textDecoration:"none",
+                  boxShadow:"none",
+                   paddingLeft:"10px",
+                  padding:"0.5em",
+                  fontSize:"16px",
+                  margin:"0 0.2rem",color:"rgb(0,0,0,0.6"
+                }}
+                >
+                About me
                </Button>
-               <Button style={{fontSize:"1.2rem",}}>
+               <Button component={Link} to="/musings" activeStyle={{background:"rgba(0, 0, 0, 0.04)"}} 
+                style={{
+                  textTransform:"none",
+                  textDecoration:"none",
+                  boxShadow:"none",
+                   paddingLeft:"10px",
+                  padding:"0.5em",
+                  fontSize:"16px",
+                  margin:"0 0.2rem",color:"rgb(0,0,0,0.6"
+                }}
+                >
+              Musings
+               </Button>
+          
              
-             <Link to="/articles" className={classes.bannerfont} style={{
-             textTransform:"none",
-             textDecoration:"none",
-             padding:"1.rem",
-            
-             padding:"0.1em",
-             boxShadow:"none",
-            //  whiteSpace:"nowrap",
-             margin:"0 0.2rem",color:"rgb(0,0,0,0.6"}}>
-              Articles
-            </Link>
+               <Button component={Link} to="/contact" activeStyle={{background:"rgba(0, 0, 0, 0.04)"}} 
+                style={{
+                  textTransform:"none",
+                  textDecoration:"none",
+                  boxShadow:"none",
+                   paddingLeft:"10px",
+                  padding:"0.5em",
+                  fontSize:"16px",
+                  margin:"0 0.2rem",color:"rgb(0,0,0,0.6"
+                }}
+                >
+             Contact
                </Button>
-               <Button style={{}}>
-             
-             <Link to="/contact" className={classes.bannerfont} style={{margin:"0 0.2rem",
-             textTransform:"none",
-         
-             padding:"0.1em",
-             textDecoration:"none",
-             boxShadow:"none",
-            //  whiteSpace:"nowrap",
-             color:"rgb(0,0,0,0.6"}}>
-        Contact
-      </Link>
-               </Button>
+          
            </div>
          
           
@@ -226,13 +262,13 @@ const preventDefault = event => event.preventDefault();
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,
-        maxWidth: rhythm(28),
-        
+        maxWidth: rhythm(30),
+        // background:"pink",
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       }}
     >
    
-      <main>{children}
+      <main style={{minHeight:400}}>{children}
       
       </main>
       <footer>
