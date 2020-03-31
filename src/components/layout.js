@@ -104,6 +104,7 @@ const Layout = ({ location, title, children }) => {
             whiteSpace:"nowrap",
             // background:"green"
           }}
+          className={classes.bannerTitle}
           to={`/`}
         >
         <h3 style={{marginTop:0,marginBottom:0}}>{title}</h3> 
@@ -127,6 +128,7 @@ const Layout = ({ location, title, children }) => {
             whiteSpace:"nowrap"
           }}
           to={`/`}
+          className={classes.bannerTitle}
         >
          <h3 style={{marginTop:0,marginBottom:0}}>{title}</h3> 
           </Link>
