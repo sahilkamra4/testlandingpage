@@ -1,4 +1,4 @@
-import React,{useEffect} from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -15,61 +15,62 @@ import { rhythm, scale } from "../utils/typography";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(1),
-   
+
     [theme.breakpoints.down('xs')]: {
       backgroundColor: 'green',
-      height:'10px !important'
+      height: '10px !important'
     },
-    height:"100px"
+    height: "100px"
   },
-  mainbody:{
-    marginTop:"40px",
+  mainbody: {
+    marginTop: "40px",
     [theme.breakpoints.down('xs')]: {
-      marginTop:"40px",
+      marginTop: "40px",
     },
+    // width: '100%'
   },
-  bannerfont:{
-    fontSize:"18px",
+  bannerfont: {
+    fontSize: "18px",
     [theme.breakpoints.down('xs')]: {
-      fontSize:"14px",
+      fontSize: "14px",
     },
     // "&:active":{
     //   backgroundColor:"rgb(0,0,0,0.6)"
     // }
-    
+
 
   },
-  bannerTitle:{
+  bannerTitle: {
     [theme.breakpoints.down('xs')]: {
-      display:"none",
-      
+      display: "none",
+
     },
   },
-  bannerTitlePhone:{
-    display:'none',
+  bannerTitlePhone: {
+    display: 'none',
     [theme.breakpoints.down('xs')]: {
-      display:'inline-block',
-      paddingLeft:"2px"
+      display: 'inline-block',
+      paddingLeft: "2px"
     },
   },
-  linkbutton:{
+  linkbutton: {
     // "&:hover":{
     //   backgroundColor:"red"
     // },
-    "&:active":{
-      backgroundColor:"green"
+    "&:active": {
+      backgroundColor: "green"
     }
   }
   ,
-  links:{
-    justifyContent:"flex-end",
+  links: {
+    justifyContent: "flex-end",
     [theme.breakpoints.down('xs')]: {
-      justifyContent:"center",
+      justifyContent: "center",
       // alignItem:"center"
     },
     [theme.breakpoints.down(300)]: {
-      justifyContent:"flex-start",
-      alignItem:"center"
+      justifyContent: "flex-start",
+      alignItem: "center"
     },
   }
 }));
@@ -77,9 +78,9 @@ const useStyles = makeStyles(theme => ({
 
 const Layout = ({ location, title, children }) => {
 
- 
+
   const rootPath = `${__PATH_PREFIX__}/`
-  const classes=useStyles()
+  const classes = useStyles()
   let header
 
   if (location.pathname === rootPath) {
@@ -94,21 +95,21 @@ const Layout = ({ location, title, children }) => {
       //     whiteSpace:"nowrap"
       //   }}
       // >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `black`,
-            fontSize:'1.988em',
-            fontWeight:"bold",
-            whiteSpace:"nowrap",
-            // background:"green"
-          }}
-          className={classes.bannerTitle}
-          to={`/`}
-        >
-        <h3 style={{marginTop:0,marginBottom:0}}>{title}</h3> 
-        </Link>
+      <Link
+        style={{
+          boxShadow: `none`,
+          textDecoration: `none`,
+          color: `black`,
+          fontSize: '1.988em',
+          fontWeight: "bold",
+          whiteSpace: "nowrap",
+          // background:"green"
+        }}
+        className={classes.bannerTitle}
+        to={`/`}
+      >
+        <h3 style={{ marginTop: 0, marginBottom: 0 }}>{title}</h3>
+      </Link>
       // </h3>
     )
   } else {
@@ -120,81 +121,85 @@ const Layout = ({ location, title, children }) => {
       //     verticalAlign:"middle"
       //   }}
       // >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            // color: `red`,
-            whiteSpace:"nowrap"
-          }}
-          to={`/`}
-          className={classes.bannerTitle}
-        >
-         <h3 style={{marginTop:0,marginBottom:0}}>{title}</h3> 
-          </Link>
+      <Link
+        style={{
+          boxShadow: `none`,
+          textDecoration: `none`,
+          // color: `red`,
+          whiteSpace: "nowrap"
+        }}
+        to={`/`}
+        className={classes.bannerTitle}
+      >
+        <h3 style={{ marginTop: 0, marginBottom: 0 }}>{title}</h3>
+      </Link>
       // </h3>
     )
   }
 
-  useEffect(()=>{
-    console.log(document.getElementById("header").style.height )
+  useEffect(() => {
+    console.log(document.getElementById("header").style.height)
     const windowGlobal = typeof window !== 'undefined' && window
-    windowGlobal.onscroll = function() {scrollFunction()};
-    
+    windowGlobal.onscroll = function () { scrollFunction() };
+
     function scrollFunction() {
-      if ((document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) && document.body.clientWidth>600) {
+      if ((document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) && document.body.clientWidth > 600) {
         // console.log("scrolling")
-       
+
         document.getElementById("header").style.height = "80px";
-      
+
       }
-        
+
       else {
         // console.log("decreased scrolling")
-       
-        
+
+
         document.getElementById("header").style.height = "100px";
-         
-      
+
+
+      }
     }
-  }
-    
+
   })
 
-const preventDefault = event => event.preventDefault();
+  const preventDefault = event => event.preventDefault();
   return (
     <div>
-      
-<header  style={{background:"",}}>
 
-<AppBar elevation={0} id="header" className={classes.root} position="fixed" style={{transition:"0.2s",background:"white",elevation:0}}>
-        <Toolbar style={{background:"white",maxWidth:"850px",margin:"auto",width:"100%",marginBottom:"0px"}}>
-        
-{/*     
+      <header style={{ background: "", }}>
+
+        <AppBar elevation={0} id="header" className={classes.root} position="fixed" style={{ transition: "0.2s", background: "white", elevation: 0 }}>
+          <Toolbar style={{ background: "white", margin: "auto", maxWidth: "70%", width: "100%", marginBottom: "0px" }}>
+
+            {/*     
            <Link to="/" className={classes.bannerTitle} style={{whiteSpace:"nowrap",
            textDecoration:"none",boxShadow:"none",
            color:"#333",
            fontSize:"1.2rem",}}>
              Sahil Kamra
            </Link>  */}
-        {header}
-           <Link to="/" className={classes.bannerTitlePhone} style={{whiteSpace:"nowrap",
-           textDecoration:"none",boxShadow:"none",
-           color:"#333",
-           fontSize:"1.2rem",}}>
-             SK
-           </Link> 
-      
-           <div className={classes.links} style={{display:"flex", marginLeft:"0px",
-         width:"100%",
-          background:"",
-          color:"black",
-          whiteSpace:"nowrap",
-          overflow:"hidden"}}>
-        
-          
-           <div > 
-           {/* <Button style={{fontSize:"1.2rem"}} className={classes.linkbutton} selected={true}>
+            {header}
+            <Link to="/" className={classes.bannerTitlePhone} style={{
+              whiteSpace: "nowrap",
+              textDecoration: "none", boxShadow: "none",
+              color: "#333",
+              fontSize: "1.2rem",
+            }}>
+              SK
+           </Link>
+
+            <div className={classes.links} style={{
+              display: "flex", marginLeft: "0px",
+              width: "100%",
+              background: "",
+              color: "black",
+              whiteSpace: "nowrap",
+              overflow: "hidden"
+            }}>
+
+
+              <div >
+                {/* <Button style={{fontSize:"1.2rem"}} className={classes.linkbutton} selected={true}>
              
              <Link to="/about" className={classes.bannerfont} style={{
              textTransform:"none",
@@ -207,79 +212,71 @@ const preventDefault = event => event.preventDefault();
               About me
             </Link>
                </Button> */}
-               <Button component={Link} to="/about" activeStyle={{background:"rgba(0, 0, 0, 0.04)"}} 
-                style={{
-                  textTransform:"none",
-                  textDecoration:"none",
-                  boxShadow:"none",
-                   paddingLeft:"10px",
-                  padding:"0.5em",
-                  fontSize:"16px",
-                  margin:"0 0.2rem",color:"rgb(0,0,0,0.6"
-                }}
+                <Button component={Link} to="/" activeStyle={{ background: "rgba(0, 0, 0, 0.04)" }}
+                  style={{
+                    textTransform: "none",
+                    textDecoration: "none",
+                    boxShadow: "none",
+                    paddingLeft: "10px",
+                    padding: "0.5em",
+                    fontSize: "16px",
+                    margin: "0 0.2rem", color: "rgb(0,0,0,0.6"
+                  }}
                 >
-                About me
+                  Login
                </Button>
-               <Button component={Link} to="/musings" activeStyle={{background:"rgba(0, 0, 0, 0.04)"}} 
-                style={{
-                  textTransform:"none",
-                  textDecoration:"none",
-                  boxShadow:"none",
-                   paddingLeft:"10px",
-                  padding:"0.5em",
-                  fontSize:"16px",
-                  margin:"0 0.2rem",color:"rgb(0,0,0,0.6"
-                }}
+                <Button component={Link} to="/" activeStyle={{ background: "rgba(0, 0, 0, 0.04)" }}
+                  style={{
+                    textTransform: "none",
+                    textDecoration: "none",
+                    boxShadow: "none",
+                    paddingLeft: "10px",
+                    padding: "0.5em",
+                    fontSize: "16px",
+                    margin: "0 0.2rem", color: "rgb(0,0,0,0.6"
+                  }}
                 >
-              Musings
+                  Signup
                </Button>
-          
-             
-               <Button component={Link} to="/contact" activeStyle={{background:"rgba(0, 0, 0, 0.04)"}} 
-                style={{
-                  textTransform:"none",
-                  textDecoration:"none",
-                  boxShadow:"none",
-                   paddingLeft:"10px",
-                  padding:"0.5em",
-                  fontSize:"16px",
-                  margin:"0 0.2rem",color:"rgb(0,0,0,0.6"
-                }}
-                >
-             Contact
-               </Button>
-          
-           </div>
-         
-          
-          </div>
 
-          {/* <Button color="inherit">Login</Button> */}
-        </Toolbar>
-      </AppBar>
 
-</header>
-    <div
-      className={classes.mainbody}
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(30),
-        // background:"pink",
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-   
-      <main style={{minHeight:400}}>{children}
-      
-      </main>
-      <footer>
-        © {new Date().getFullYear()}
-        {` `}
-        
-      </footer>
-    </div>
-    </div>
+
+
+              </div>
+
+
+            </div>
+
+            {/* <Button color="inherit">Login</Button> */}
+          </Toolbar>
+        </AppBar>
+
+      </header>
+      <div
+        className={classes.mainbody}
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          // maxWidth: rhythm(40),
+          maxWidth: '70%',
+          // background:"pink",
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+
+          // background: ''
+        }}
+      >
+
+        <main style={{ minHeight: 400, width: '100%' }}>
+          {children}
+
+        </main>
+        <footer>
+          © {new Date().getFullYear()}
+          {` `}
+
+        </footer>
+      </div>
+    </div >
   )
 }
 

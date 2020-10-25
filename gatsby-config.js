@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Sahil Kamra`,
+    title: `Learn a Language`,
     author: {
       name: `Sahil Kamra`,
       summary: `who lives and works in New Delhi building useful things.`,
@@ -26,8 +26,8 @@ module.exports = {
         name: `thumbnails`,
       },
     },
-  
-    
+
+
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
@@ -105,10 +105,10 @@ module.exports = {
       }
     }
     ,
-   
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-    
+
   ],
 }
