@@ -49,15 +49,18 @@ const BlogIndex = ({ data, location }) => {
       })} */}
 
       <Grid container style={{ marginTop: '20px', background: '', minHeight: '100vh', maxWidth: '100%' }}>
-        <Grid item xs={12} sm={12} md={4} lg={4} style={{ background: "pink" }}>
+        <Grid item xs={12} sm={12} md={6} lg={6} style={{ background: "" }}>
           <div style={{
             display: 'flex',
             height: '100%',
             flexDirection: 'column',
-            marginTop: '40%'
+            marginTop: '40%',
+            // justifyItems: "center"
+            // alignContent: "center",
+            // alignItems: "center"
             // justifyContent: 'center'
           }}>          <div style={{ display: 'flex', width: '100%' }}>
-              <Typography variant="h1" component="h2" gutterBottom style={{ fontSize: '32px' }}>
+              <Typography variant="h1" component="h2" gutterBottom style={{ fontSize: '32px', }}>
                 Learn French 1 on 1 with Handpicked Teachers
       </Typography>
             </div>
@@ -73,7 +76,7 @@ const BlogIndex = ({ data, location }) => {
           </div>
 
         </Grid>
-        <Grid item xs={12} sm={12} md={8} lg={8} style={{ background: '' }}>
+        <Grid item xs={12} sm={12} md={6} lg={6} style={{ background: '' }}>
 
           <Image
             fluid={data.avatar.childImageSharp.fluid}
